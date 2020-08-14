@@ -13,10 +13,10 @@
                 if (inp.length == 0) {
                     throw "Empty String";
                 }
-                arr = inp.split(' ')
+                words = inp.split(' ')
                 var i = 0;
-                for (i; i < arr.length; i++) {
-                    document.write('Slot:' + i + ' Element:' + arr[i] + '<br/>');
+                for (i; i < words.length; i++) {
+                    document.write('Slot:' + i + ' Element:' + words[i] + '<br/>');
                 }
                 document.write(arr)
             } catch (error) {

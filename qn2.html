@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Sort</title>
+    <script>
+        function text_to_array() {
+
+            try {
+                inp = prompt('Enter phrase:')
+                if (inp.length == 0) {
+                    throw "Empty String";
+                }
+                words = inp.split(' ')
+                var i = 0;
+                for (i; i < words.length; i++) {
+                    document.write('Slot:' + i + ' Element:' + words[i] + '<br/>');
+                }
+                return words
+            } catch (error) {
+                document.write('<h1>Error:</h1>' + error)
+            }
+
+        }
+
+        function reverse_sort(array) {
+            var n = array.length;
+            copied = array;
+            var i, j, temp, max;
+
+            for (i = 0; i < n; i++) {
+                max = i;
+                for (j = i + 1; j < n; j++) {
+                    if (copied[max].toLowerCase() < copied[j].toLowerCase()) {
+                        max = j;
+                    }
+                }
+
+                if (max != i) {
+                    temp = copied[i];
+                    copied[i] = copied[max];
+                    copied[max] = temp;
+                }
+            }
+
+            document.write('<br/>Reverse:'+copied)
+        }
+        words = text_to_array()
+        reverse_sort(words)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
