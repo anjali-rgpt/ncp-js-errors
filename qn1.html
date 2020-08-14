@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Splitter</title>
+    <script>
+        function text_to_array() {
+
+            try {
+                inp = prompt('Enter phrase:')
+                if (inp.length == 0) {
+                    throw "Empty String";
+                }
+                arr = inp.split(' ')
+                var i = 0;
+                for (i; i < arr.length; i++) {
+                    document.write('Slot:' + i + ' Element:' + arr[i] + '<br/>');
+                }
+                document.write(arr)
+            } catch (error) {
+                document.write('<h1>Error:</h1>' + error)
+            }
+
+        }
+
+        text_to_array()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
