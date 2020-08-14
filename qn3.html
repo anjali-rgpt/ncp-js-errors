@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histogram</title>
+    <script>
+        function histogram() {
+            try {
+                var stringval = "";
+                var array;
+                var inputnum = "";
+                inputnum = prompt('Enter number:');
+                while (inputnum != null) {
+                    stringval = stringval + inputnum.toString() + ' '
+                    inputnum = prompt('Enter number');
+                }
+
+                array = stringval.split(' ');
+
+                var newArray = new Array(array.length);
+                var i, j;
+                for (i = 0; i < array.length; i++) {
+                    stars = "";
+                    for (j = 0; j < parseInt(array[i]); j++) {
+                        stars += "*";
+
+                    }
+                    newArray[i] = stars;
+                }
+                newArray.pop();
+                maxval = -99999;
+                for (i = 0; i < array.length; i++) {
+                    array[i] = parseInt(array[i]);
+
+                    if (array[i] > maxval)
+                        maxval = array[i];
+                }
+                //document.write(newArray.length+'<br>')
+                //document.write(maxval);
+
+                for (i = 0; i < newArray.length; i++) {
+                    if (newArray[i].length == maxval)
+                        continue;
+
+                    newArray[i] = newArray[i] + ("0".repeat(maxval - newArray[i].length));
+                    //document.write(newArray[i]+'<br>');
+                }
+
+                for (i = 0; i < maxval; i++) {
+                    for (j = 0; j < newArray.length; j++) {
+                        //document.write(newArray[i][j])
+                        if (newArray[j][i] == "0")
+                            document.write(" ")
+                        else
+                            document.write(newArray[j][i]);
+
+                    }
+                    document.write('<br/>')
+                }
+
+            } catch (error) {
+                document.write('Cannot make histogram for null <br/>');
+                document.write(error);
+            }
+        }
+
+        histogram();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
